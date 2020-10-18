@@ -1,0 +1,19 @@
+// Build the library
+java_library {
+    name: "vendor.car",
+    installable: true,
+    srcs: ["src/**/*.java"] + ["src/**/I*.aidl"],
+    aidl: {
+        local_include_dirs: ["src"],
+    },
+    required: ["vendor.car.xml"],
+    product_specific: true,
+}
+
+// Copy vendor_car.xml to /product/etc/permissions/
+prebuilt_etc {
+    name: "vendor.car.xml",
+    src: "vendor.car.xml",
+    sub_dir: "permissions",
+    product_specific: true,
+}

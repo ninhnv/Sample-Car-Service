@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.vendor.car"
+    android:sharedUserId="android.uid.system">
+
+    <permission
+        android:name="android.car.permission.CAR_SPEED"
+        android:permissionGroup="android.permission-group.LOCATION"
+        android:protectionLevel="dangerous"
+        android:label="@string/car_permission_label_speed"
+        android:description="@string/car_permission_desc_speed" />
+
+    <application android:name=".VendorCarService" android:persistent="true">
+        <uses-library android:name="vendor.car" android:required="true"/>
+    </application>
+</manifest>

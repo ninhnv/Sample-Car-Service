@@ -1,0 +1,20 @@
+typeattribute vendorcarsampleservice coredomain;
+type vendorcarsampleservice_exec, exec_type, file_type;
+
+init_daemon_domain(vendorcarsampleservice)
+
+# Allow the service to register itself with ServiceManager
+allow system_app vendorcarsampleservice_service:service_manager add;
+
+# Allow the car service to find the service through ServiceManager
+# allow untrusted_app vendorcarsampleservice_service:service_manager {find};
+
+binder_use(vendorcarsampleservice)
+binder_call(vendorcarsampleservice, appdomain)
+binder_service(vendorcarsampleservice)
+
+# Allow shellcommand from adbd
+allow vendorcarsampleservice adbd:fd use;
+
+# Needed for permission checking
+binder_call(vendorcarsampleservice, system_server);

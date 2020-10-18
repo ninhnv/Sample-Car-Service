@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="car_permission_desc_speed">Access your car\u2019s speed.</string>
+    <string name="car_permission_label_speed">read car\u2019s speed</string>
+</resources>
